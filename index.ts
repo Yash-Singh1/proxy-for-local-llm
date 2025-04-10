@@ -29,6 +29,9 @@ const server = serve({
 
     // Forward the request
     const body = await req.text();
+    req.headers.delete("origin");
+    req.headers.delete("host");
+    req.headers.set("accept-encoding", "identity");
     const proxyRequest = new Request(targetUrl, {
       method: req.method,
       headers: req.headers,
