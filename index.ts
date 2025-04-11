@@ -1,6 +1,6 @@
 import { serve } from "bun";
 
-const PROXY_TARGET = "http://localhost:11434/"; // Replace with your target URL
+const PROXY_TARGET = process.env.PROXY_TARGET || "http://localhost:11434/";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
